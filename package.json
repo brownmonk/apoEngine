@@ -1,0 +1,25 @@
+{
+  "name": "bandstock",
+  "version": "0.0.0",
+  "description": "bandstock project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/altereagle/bandstock.git"
+  },
+  "dependencies": {
+    "connect": "*"
+  },
+  "keywords": [
+    "bandstock",
+    "music",
+    ""
+  ],
+  "author": "Matt Davis, Kendell Joseph",
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}
