@@ -1,0 +1,25 @@
+body {
+    height: 1000px;
+    background-color: rgb(134,190,173);
+    background-image:url('../../images/background1.png');
+}
+#welcomeMessage {
+    position: fixed;
+    top: 10%;
+    right: 0;
+    font-size: 6em;
+    font-family: "Passion One";
+    text-shadow: 4px -2px 0 rgb(134,190,173);
+    padding: 0.5em;
+    background-color: rgb(160,151,152);
+    box-shadow: 0 10px 40px -15px #000;
+}
+#comingSoon{
+    position: fixed;
+    bottom: 10%;
+    right: 0;
+    font-size: 2em;
+    font-family: "Passion One";
+    padding: 0.25em;
+    background-color: rgb(134,190,173);
+}
