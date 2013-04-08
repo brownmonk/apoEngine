@@ -2,9 +2,21 @@
 
 /* Controllers */
 
+function BandCtrl($scope, $http) {
+    $scope.bands = [
+        {
+            name:'band1',
+            snippet:'Unemro Ucho'
+        },
+        {
+            name:'band2',
+            snippet:'so rox0r'
+        }
+    ]
 
-function BandCtrl() {}
-BandCtrl.$inject = [];
+}
+
+BandCtrl.$inject = ['$scope', '$http'];
 
 
 function AccountCtrl() {
