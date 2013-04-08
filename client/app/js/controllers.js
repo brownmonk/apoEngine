@@ -3,20 +3,20 @@
 /* Controllers */
 
 function BandCtrl($scope, $http) {
-    $scope.bands = [
-        {
-            name:'band1',
-            snippet:'Unemro Ucho'
-        },
-        {
-            name:'band2',
-            snippet:'so rox0r'
-        }
-    ]
-
+    $http.get('data/bands.json').success(function(data) {
+        $scope.bands = data;
+    });
 }
 
-BandCtrl.$inject = ['$scope', '$http'];
+function BandDetailCtrl($scope, $http, $routeParams) {
+    $scope.bandId = $routeParams.bandId;
+
+    $http.get('data/bands/'+$routeParams.bandId+'.json').success(function(data) {
+       $scope.band = data;
+    });
+}
+
+BandCtrl.$inject = ['$scope', '$http', '$routeParams'];
 
 
 function AccountCtrl() {

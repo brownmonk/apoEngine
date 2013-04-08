@@ -1,0 +1,14 @@
+[
+    {
+        "id":"1",
+        "name":"band1",
+        "snippet":"Unemero Ucho",
+        "imageUrl":"img/bands/KendellIcon.jpeg"
+    },
+    {
+        "id":"2",
+        "name":"band2",
+        "snippet":"so rox0r",
+        "imageUrl":"img/bands/MattIcon.jpeg"
+    }
+]

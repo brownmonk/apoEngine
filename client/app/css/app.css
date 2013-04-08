@@ -28,3 +28,13 @@
   content: "";
   padding: 0;
 }
+
+.thumb {
+    height: 5em;
+    width: 5em;
+}
+
+.thumbBig {
+    height: 15em;
+    width: 15em;
+}
