@@ -2,23 +2,27 @@
 
 /* Controllers */
 
-function BandCtrl($scope, $http) {
-    $http.get('data/bands.json').success(function(data) {
-        $scope.bands = data;
-    });
+function BandCtrl($scope, Band) {
+    $scope.bands = Band.query();
 }
 
-function BandDetailCtrl($scope, $http, $routeParams) {
+function BandDetailCtrl($scope, Band, $routeParams) {
     $scope.bandId = $routeParams.bandId;
 
-    $http.get('data/bands/'+$routeParams.bandId+'.json').success(function(data) {
-       $scope.band = data;
+    $scope.band = Band.get({bandId: $routeParams.bandId}, function(band) {
+        $scope.band = band;
+        $scope.count = 0;
     });
+
+    $scope.addToCount = function(){
+        $scope.count++;
+    }
 }
 
-BandCtrl.$inject = ['$scope', '$http', '$routeParams'];
+//$inject is unnecessary unless minifying
+//BandCtrl.$inject = ['$scope', 'Band', '$routeParams'];
 
 
 function AccountCtrl() {
 }
-AccountCtrl.$inject = [];
+//AccountCtrl.$inject = [];

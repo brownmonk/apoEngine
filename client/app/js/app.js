@@ -9,3 +9,4 @@ angular.module('bandStock', ['bandStock.filters', 'bandStock.services', 'bandSto
     $routeProvider.when('/account', {templateUrl: 'partials/account.html', controller: AccountCtrl});
     $routeProvider.otherwise({redirectTo: '/'});
   }]);
+

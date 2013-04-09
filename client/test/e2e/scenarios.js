@@ -2,31 +2,43 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('my app', function() {
+describe('BandStock', function() {
 
-  beforeEach(function() {
-    browser().navigateTo('../../app/index.html');
-  });
+    describe('BandDetailCtrl', function(){
+        var scope, $httpBackend, ctrl;
+
+        beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller) {
+            $httpBackend = _$httpBackend_;
+            $httpBackend.expectGET('data/bands/1.json').respond({name:'band 1'});
+
+            $routeParams.phoneId = '1';
+            scope = $rootScope.$new();
+            ctrl = $controller(BandDetailCtrl, {$scope: scope});
+        }));
 
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/view1");
-  });
+        it('should fetch band detail', function() {
+            expect(scope.band).toBeUndefined();
+            $httpBackend.flush();
 
-
-  describe('view1', function() {
-
-    beforeEach(function() {
-      browser().navigateTo('#/view1');
+            expect(scope.phone).toEqual({name:'phone 1'});
+        });
     });
+});
+/*
+    describe('view1', function() {
+
+        beforeEach(function() {
+          browser().navigateTo('#/view1');
+        });
 
 
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 1/);
-    });
+        it('should render view1 when user navigates to /view1', function() {
+          expect(element('[ng-view] p:first').text()).
+            toMatch(/partial for view 1/);
+        });
 
-  });
+      });
 
 
   describe('view2', function() {
@@ -42,4 +54,7 @@ describe('my app', function() {
     });
 
   });
-});
+  */
+
+
+
