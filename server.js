@@ -34,7 +34,7 @@ db.once('open', function callback () {
     logger.log('info', 'database connection open');
 });
 
-var stockSchema = new Schema({
+var stockSchema = new mongoose.Schema({
     bsid: String,
     owner: String,
     issuer: String,
