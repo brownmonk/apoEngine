@@ -14,7 +14,7 @@
   "dependencies": {
     "connect": "*",
     "mongoose": "*",
-    "winston": "$"
+    "winston": "*"
   },
   "keywords": [
     "bandstock",
