@@ -12,7 +12,9 @@
     "url": "git://github.com/altereagle/bandstock.git"
   },
   "dependencies": {
-    "connect": "*"
+    "connect": "*",
+    "mongoose": "*",
+    "winston": "$"
   },
   "keywords": [
     "bandstock",
