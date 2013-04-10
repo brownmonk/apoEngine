@@ -10,4 +10,8 @@ angular.module('bandStock.services', ['ngResource']).
         return $resource('data/bands/:bandId.json', {}, {
             query: {method:'GET', params:{bandId:'allBands'}, isArray:true}
         });
+    }).factory('Hello', function($resource){
+        return $resource('hello/:name', {}, {
+            query: {method: 'GET', params:{name:'Matt'}, isArray:false}
+        })
     });
