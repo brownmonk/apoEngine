@@ -1,7 +1,7 @@
 <p>This is the band view!</p>
 
 <div ng-repeat="band in bands">
-    <div>
+    <div class="bandPreview">
         <p><a href="#/bands/{{band.id}}" class="thumb"><img ng-src="{{band.imageUrl}}" class="thumb"></a></p>
         <p><a href="#/bands/{{band.id}}">{{band.name}}</a></p>
         <p>{{band.snippet}}</p>

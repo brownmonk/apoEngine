@@ -1,0 +1,25 @@
+.bandPreview{
+    float: left;
+    margin:1em;
+    padding: 1em;
+    border: 10px solid #fff;
+    max-width: 195px;
+}
+/* Band preview Links */
+.bandPreview > p > a {
+    font-size: 2em;
+    color: #999
+}
+.bandPreview > p > a:hover {
+    color: #f00;
+}
+/* Thumbnail Photos */
+.thumb {
+    height: 5em;
+    width: 5em;
+    margin: 0.25em;
+}
+.thumbBig {
+    height: 15em;
+    width: 15em;
+}

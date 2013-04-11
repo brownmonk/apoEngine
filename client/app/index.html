@@ -1,35 +1,33 @@
 <!doctype html>
 <html lang="en" ng-app="bandStock">
 <head>
-  <meta charset="utf-8">
-  <title>BandStock</title>
-  <link rel="stylesheet" href="css/app.css"/>
+    <meta charset="utf-8">
+    <title>BandStock | Under construction</title>
+    <link rel="stylesheet" href="css/lib/reset.css"/>
+    <link rel="stylesheet" href="css/lib/fonts.css"/>
+    <link rel="stylesheet" href="css/desktop/default.css"/>
+    <link rel="stylesheet" href="css/desktop/bands.css"/>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/bands">bands</a></li>
-    <li><a href="#/account">account</a></li>
-  </ul>
-
-  <div ng-view></div>
-
-  <div>BandStock is coming</div>
-
-
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
-  -->
-
-  <script src="lib/angular/angular.js"></script>
-
-
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
-
-  <script src="lib/angular/angular-resource.js"></script>
+    <ul class="menu">
+        <li><a href="#/bands">bands</a></li>
+        <li><a href="#/account">account</a></li>
+    </ul>
+    <div ng-view></div>
+    <div id="previewMessage">BandStock</div>
 
 </body>
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+-->
+<script src="lib/angular/angular.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+
+<script src="lib/angular/angular-resource.js"></script>
+
 </html>

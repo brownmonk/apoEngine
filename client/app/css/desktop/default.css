@@ -1,0 +1,48 @@
+body {
+    padding: 1em;
+    font-family: 'Press Start 2P', Arial sans-serif;
+    color: #fff;
+    background-color: #000;
+}
+#previewMessage{
+    position: fixed;
+    bottom: 10%;
+    right: 0;
+    color: #000;
+    font-size: 2em;
+    padding: 0.25em;
+    background-color: #fff;
+}
+/* Link Style*/
+a {
+    color: #0f0;
+    text-decoration: none;
+}
+    a:hover {
+        color: #f00;
+    }
+    a:active {
+        color: #fff;
+    }
+/* Main Menu */
+.menu {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding: 2%;
+    left: 0;
+    width: 94%;
+    list-style: none;
+}
+.menu > li {
+    display: inline;
+}
+
+.menu > li:before {
+    padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+    content: "";
+    padding: 0;
+}
