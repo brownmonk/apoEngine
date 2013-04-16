@@ -1,50 +1,32 @@
-var connect = require("connect");
-var mongoose = require('mongoose');
-var winston = require('winston');
+var express = require('express')();
 
-//Instantiate Winston logger and configure to write to log/server.log and console.
-var logger = new (winston.Logger)({
-    transports: [
-        new (winston.transports.Console)(),
-        new (winston.transports.File)({ filename: 'server.log' })
-    ]
-});
+var logger = require('winston');
+var fs = require('fs')
+var mongoose = require('mongoose')
 
-//Create a server listeningo n port 80
-var server = connect()
-    .use(connect.static("client"))
-    .use(function (request, response) {
-    response.statusCode = 403;
+// Load configurations
+var env = process.env.NODE_ENV || 'development';
+var config = require('./server/config/config.js')[env];
 
-    logger.info("Responding with 403 end of the internet");
-    response.end("You have reached the end of the Internet.");
+// Bootstrap db connection
+mongoose.connect(config.db)
 
-    })
-    .listen(80);
+// Bootstrap models
+var models_path = __dirname + '/server/models/'
+fs.readdirSync(models_path).forEach(function (file) {
+    require(models_path+'/'+file)
+})
+
+// express settings
+require('./server/config/express.js')(express, config)
+
+// Bootstrap routes
+require('./server/routes/routes.js')(express)
+
+// Start the app by listening on <port>
+var port = process.env.PORT || 80
+express.listen(port)
+console.log('Express app started on port '+port)
+
 
 logger.log('info', '*** BANDSTOCK SERVER HAS STARTED ***');
-
-
-//connect to the database
-mongoose.connect('mongodb://localhost/bandstock');
-var db = mongoose.connection;
-
-db.on('error', function(){logger.error('database error' + arguments)});
-db.once('open', function callback () {
-    logger.log('info', 'database connection open');
-});
-
-var stockSchema = new mongoose.Schema({
-    bsid: String,
-    owner: String,
-    issuer: String,
-    purchasePrice: 0,
-    purchasePriceHistory: [0],
-    originationDate: {type: Date, default: Date.now },
-    meta: {
-        favcodes: [{favcode: String}]
-    }
-});
-
-//console.log('*** BANDSTOCK SERVER HAS STARTED ***');
-

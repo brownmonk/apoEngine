@@ -14,7 +14,8 @@
   "dependencies": {
     "connect": "*",
     "mongoose": "*",
-    "winston": "*"
+    "winston": "*",
+    "express": "3.x"
   },
   "keywords": [
     "bandstock",
