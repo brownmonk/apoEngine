@@ -11,14 +11,21 @@ module.exports = function (app, db) {
 
 
     app.get('/stocks/:stockId', function(req, res){
-        var param = req.param('stockId');
-        var body = {stockId:param};
-        body = JSON.stringify(body);
-        res.setHeader('Content-Type', 'application/json');
-        res.setHeader('Content-Length', body.length);
-        res.end(body);
+        var stockId = req.param('stockId');
+        var Stock = mongoose.model('Stock');
 
+        Stock.find({ stockId:stockId  }, function(){
+            logger.info(arguments);
+            var body = {stockId:stockId};
+            body = JSON.stringify(body);
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Content-Length', body.length);
+            res.end(body);
+        })
+
+
+        logger.info('hit stocks/:stockId');
     });
-    logger.info('hit stocks/:stockId');
+
 }
 
